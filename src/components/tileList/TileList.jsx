@@ -1,21 +1,16 @@
 import React from "react";
-import { Tile } from "../tile/Tile";
+import { Tile } from '../tile/Tile';
 
-export const TileList = ({ list }) => {
-
-  console.log(list);
+export const TileList = ({ tileCards }) => {
   return (
     <div>
-      {list.length > 0 ? (
-        list.map((item) => (
-          <Tile
-            name={item.name}
-            phone={item.phone}
-            email={item.email}
-          />
-        ))
+      {tileCards.length > 0 ? (
+        tileCards.map((tileCard, index) => {
+          const { name, ...rest } = tileCard;
+          return <Tile name={name} description={rest} key={index} />;
+        })
       ) : (
-        <p>No contacts</p>
+        <p className="tile">No Contacts</p>
       )}
     </div>
   );

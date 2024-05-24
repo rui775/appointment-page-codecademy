@@ -1,11 +1,12 @@
 import React from "react";
 
-export const Tile = ({ name, phone, email }) => {
+export const Tile = ({ name, description }) => {
+
+  // console.log(description)
   return (
     <div className="tile-container">
-      <p className="tile-title">{name}</p>
-      <p className="tile">{phone}</p>
-      <p className="tile">{email}</p>
+      <p className="tile-tile">{name}</p>
+      {Object.entries(description).map(([key, value]) => <p className="tile" key={key}>{value}</p>)}
     </div>
   );
 };
